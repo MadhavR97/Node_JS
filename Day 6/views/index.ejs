@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="w-full h-screen bg-[#212121] flex">
+    <div class="w-[30%] h-full flex justify-center items-center">
+        <form action="/addData" method="post" class="border border-[gray] w-[80%] rounded-lg p-10 flex flex-col items-start">
+            <p class="text-xl text-[gray] font-bold mb-10">Student Form</p>
+            <input type="text" placeholder="Enter Name" name="name" class="border border-[gray] text-white w-full h-[40px] ps-5 rounded mb-5">
+            <input type="text" placeholder="Enter Email" name="email" class="border border-[gray] text-white w-full h-[40px] ps-5 rounded mb-5">
+            <input type="text" placeholder="Enter Course" name="course" class="border border-[gray] text-white w-full h-[40px] ps-5 rounded mb-5">
+            <input type="text" placeholder="Enter City" name="city" class="border border-[gray] text-white w-full h-[40px] ps-5 rounded mb-5">
+            <button type="submit" class="border border-[gray] w-[150px] h-[40px] text-[gray] rounded cursor-pointer hover:bg-black hover:text-white">Submit</button>
+        </form>
+    </div>
+
+    <div class="w-[70%] h-full p-10">
+        <p class="text-[gray] font-bold text-xl">Students Data</p>
+        <div class="border border-[gray] w-full mt-10 p-10 rounded-lg overflow-hidden">
+            <div class="border border-[gray] w-full h-[50px] flex justify-between">
+                <p class="text-[darkblue] w-[10%] h-full flex justify-center items-center font-bold">Name</p>
+                <p class="text-[darkblue] w-[30%] h-full flex justify-center items-center font-bold">Email</p>
+                <p class="text-[darkblue] w-[30%] h-full flex justify-center items-center font-bold">Course</p>
+                <p class="text-[darkblue] w-[20%] h-full flex justify-center items-center font-bold">City</p>
+                <p class="text-[darkblue] w-[10%] h-full flex justify-center items-center font-bold">Actions</p>
+            </div>
+            <%students.map((e,i)=>{%>
+                <div class="border border-[gray] w-full h-[50px] flex justify-between">
+                    <p class="text-white w-[10%] h-full flex justify-center items-center"><%=e.name%></p>
+                    <p class="text-white w-[30%] h-full flex justify-center items-center"><%=e.email%></p>
+                    <p class="text-white w-[30%] h-full flex justify-center items-center"><%=e.course%></p>
+                    <p class="text-white w-[20%] h-full flex justify-center items-center"><%=e.city%></p>
+                    <div class="w-[10%] h-full flex justify-evenly items-center font-bold">
+                        <a href="/editData/<%=e.id%>"><i class="fa-solid fa-pen cursor-pointer text-white"></i></a>
+                        <a href="/deleteData?id=<%=e.id%>"><i class="fa-solid fa-trash cursor-pointer text-white"></i></a>
+                    </div>
+                </div>
+            <%})%>
+        </div>
+    </div>
+</body>
+
+</html>
