@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        ::-webkit-scrollbar{
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-[#212121]">
+    <div class="w-full h-screen flex justify-center items-center">
+        <form action="/addTask" method="post" class="border border-white w-[30%] h-[600px] rounded-lg p-10">
+            <div class="w-full">
+                <p class="text-2xl text-white font-bold">ADD TASK</p>
+                <div class="border border-[green] w-full h-[50px] mt-5 flex justify-between items-center overflow-hidden rounded-full">
+                    <input type="text" placeholder="Add Your Task" name="task" class="text-white w-[80%] h-full ps-5 outline-none">
+                    <input type="submit" value="+" class="text-lg w-[50px] h-full cursor-pointer text-white bg-[green] rounded-full">
+                </div>
+            </div>
+        </form>
+
+        <div class="w-full h-screen absolute top-0 flex justify-center items-center backdrop-blur-[8px]">
+            <form action="/updateTask" method="post" class="border border-[gray] w-[30%] rounded-lg p-10 bg-[#212121]">
+                <div class="w-full">
+                    <p class="text-2xl text-white font-bold">EDIT TASK</p>
+                    <div class="border border-[green] w-full h-[50px] mt-5 flex justify-between items-center overflow-hidden rounded-full">
+                        <input type="text" value="<%=singleTask.id%>" hidden name="id" class="text-white w-[80%] h-full ps-5 outline-none">
+                        <input type="text" value="<%=singleTask.task%>" placeholder="Update Your Task" name="task" class="text-white w-[80%] h-full ps-5 outline-none">
+                        <input type="submit" value="Edit" class="text-xs w-[50px] h-full cursor-pointer text-white bg-[green] rounded-full">
+                    </div>
+                </div>    
+            </form>
+        </div>
+    </div>
+</body>
+</html>
