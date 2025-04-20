@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        ::-webkit-scrollbar{
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-[#212121]">
+    <header class="w-full h-[100px] bg-[#212121] px-10 flex justify-between items-center">
+        <p class="text-2xl font-bold text-[grey] [text-shadow:_5px_5px_10px_black]">Book Store</p>
+        <a href="/form"><button class="w-[150px] h-[40px] rounded text-white font-bold bg-[blue] cursor-pointer">Add Your Books</button></a>
+    </header>
+    <div class="w-full h-auto p-10 flex flex-wrap gap-9">
+        <%books.map((el)=>{%>
+            <div class="border border-[gray] w-[18%] h-[500px] rounded p-2 flex flex-col justify-between items-center">
+                <div class="w-full h-[350px]">
+                    <img src='<%=el.image%>' alt="" class="w-full h-full">
+                </div>
+                <p class="text-white font-bold"><%=el.title%></p>
+                <p class="text-[yellow]"><%=el.author%></p>
+                <p class="text-[gray] font-bold">₹ <%=el.price%></p>
+                <div class="w-full h-[40px] flex justify-between items-center">
+                    <a href="/editData/<%=el.id%>" class="w-[80%] h-full"><button class="text-white font-bold border border-[gray] w-full h-full bg-[gray] rounded cursor-pointer hover:border hover:border-[gray] hover:text-[gray] hover:bg-transparent">Edit Book</button></a>
+                    <a href="/deleteData?id=<%=el.id%>"><button class="text-white border border-[brown] w-[40px] h-[40px] bg-[brown] rounded cursor-pointer hover:border-[brown] hover:bg-transparent hover:text-[brown]"><i class="fa-solid fa-trash"></i></button></a>
+                </div>
+            </div>
+        <%})%>
+    </div>
+</body>
+</html>
