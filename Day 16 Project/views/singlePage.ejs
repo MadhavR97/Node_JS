@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book My Show</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-[#212121]">
+    <header class="w-full h-[100px] flex justify-between items-center px-20">
+        <div class="w-[15%] h-full flex justify-center items-center">
+            <img src="pngwing.com.png" alt="">
+        </div>
+        <div class="w-[15%] h-full flex justify-center items-center">
+            <a href="/"><button class="border border-[gray] w-[150px] h-[40px] rounded bg-[brown] font-bold text-white cursor-pointer shadow shadow-md shadow-black">Home</button></a>
+        </div>
+    </header>
+    <div class="w-full h-[86vh] px-20 py-10">
+        <p class="text-white font-bold text-xl [text-shadow:_0_0_5px_white]">About the Movie</p>
+        <div class="border border-[gray] w-full h-[510px] mt-10 p-5 rounded-lg flex">
+            <div class="w-[30%] h-full">
+                <img src="<%=singleData.image%>" alt="" class="h-full rounded-lg">
+            </div>
+            <div class="w-[70%] h-full py-10">
+                <p class="font-bold text-white text-4xl"><%=singleData.title%></p>
+                <p class="font-bold text-[gray] mt-5"><%=singleData.genre%></p>
+                <p class="text-white mt-5">Release Data :- <%=singleData.date%></p>
+                <div class="w-[25%] h-[50px] flex justify-between items-center px-7 mt-10 bg-[gray] rounded-lg">
+                    <i class="fa-solid fa-star" style="color: rgb(209, 49, 76);"></i>
+                    <p class="font-bold">9.8/10 (589 Votes)</p>
+                </div>
+                <div class="mt-5 w-[17%] h-[30px] flex justify-between items-center">
+                    <p class="border-white bg-white w-[50px] h-full flex justify-center items-center rounded">2D</p>
+                    <p class="border-white bg-white w-[100px] h-full flex justify-center items-center rounded">Hindi</p>
+                </div>
+                <div class="border border-white w-[25%] h-[50px] mt-20 flex justify-center items-center rounded-lg" style="background-color: rgb(209, 49, 76);">
+                    <p class="font-bold cursor-pointer">Book Tickets</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

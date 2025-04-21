@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book My Show</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-[#212121]">
+    <header class="w-full h-[100px] flex justify-between items-center px-20">
+        <div class="w-[15%] h-full flex justify-center items-center">
+            <img src="pngwing.com.png" alt="">
+        </div>
+        <div class="w-[15%] h-full flex justify-center items-center">
+            <a href="/gotoAddMovie"><button class="border border-[gray] w-[150px] h-[40px] rounded bg-[brown] font-bold text-white cursor-pointer shadow shadow-md shadow-black">Add Movies</button></a>
+        </div>
+    </header>
+    <div class="w-full h-[86vh] px-20 py-10">
+        <p class="text-white font-bold text-xl [text-shadow:_0_0_5px_white]">New Release Movies</p>
+        <div class="border border-[gray] w-full h-[510px] mt-10 p-5 rounded-lg flex gap-5 overflow-x-auto">
+            <%movies.map((e)=>{%>
+                <div class="min-w-[17%] h-full bg-[gray] rounded overflow-hidden flex flex-col items-center relative group">
+                    <a href="/singlePage?id=<%=e.id%>"><img src="<%=e.image%>" alt="" class="w-full"></a>
+                    <p class="font-bold mt-3 text-center"><%=e.title%></p>
+                    <p class="text-white text-center"><%=e.genre%></p>
+                    <div class="w-full h-[30px] flex justify-between items-center absolute top-[-30px] group-hover:top-0 duration-500">
+                        <a href="/editData?id=<%=e.id%>" class="w-[30px] h-full"><i class="fa-solid fa-pen-to-square border border-white w-[30px] h-full justify-center items-center bg-white rounded-br cursor-pointer" style="display: flex;"></i></a>
+                        <a href="/deleteData?id=<%=e.id%>" class="w-[30px] h-full"><i class="fa-solid fa-trash border border-white w-[30px] h-full justify-center items-center bg-white rounded-bl cursor-pointer" style="display: flex;"></i></a>
+                    </div>
+                </div>
+            <%})%>
+        </div>
+    </div>
+</body>
+</html>

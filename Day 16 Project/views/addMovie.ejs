@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book My Show</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        input::placeholder {
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-[#212121]">
+    <header class="w-full h-[100px] flex justify-between items-center px-20">
+        <div class="w-[15%] h-full flex justify-center items-center">
+            
+        </div>
+        <div class="w-[15%] h-full flex justify-center items-center">
+            <a href="/"><button class="border border-[gray] w-[150px] h-[40px] rounded bg-[brown] font-bold text-white cursor-pointer shadow shadow-md shadow-black">Home</button></a>
+        </div>
+    </header>
+    <div class="w-full h-[86vh] flex">
+        <div class="w-[40%] h-full flex justify-center items-center">
+            <img src="pngwing.com.png" alt="">
+        </div>
+        <div class="w-[60%] h-full flex justify-center items-center">
+            <form action="/addData" method="post" enctype="multipart/form-data" class="w-[60%] h-full p-10">
+                <p class="text-[gray] font-bold text-xl">ADD MOVIE</p>
+                <p class="text-[gray] mt-10">Title</p>
+                <input type="text" name="title" placeholder="Enter Movie Title" class="border-2 border-[gray] w-full h-[40px] rounded mt-3 ps-5 text-white">
+                <p class="text-[gray] mt-5">Genre</p>
+                <input type="text" name="genre" placeholder="Enter Movie Genre" class="border-2 border-[gray] w-full h-[40px] rounded mt-3 ps-5 text-white">
+                <p class="text-[gray] mt-5">Data</p>
+                <input type="date" name="date" class="border-2 border-[gray] w-full h-[40px] rounded mt-3 ps-5 text-white">
+                <p class="text-[gray] mt-5">Image</p>
+                <input type="file" name="image" class="border-2 border-[gray] w-full h-[40px] rounded mt-3 ps-5 pt-1 text-white cursor-pointer">
+                <input type="submit" class="border border-[gray] mt-10 w-full h-[40px] rounded bg-[gray] text-white cursor-pointer">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
