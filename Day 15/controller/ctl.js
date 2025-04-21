@@ -49,7 +49,6 @@ module.exports.updateData = async (req, res) => {
 
         req.body.image = img;
 
-        // FIXED TYPO: 'findByIdAndUpdata' → 'findByIdAndUpdate'
         await schema.findByIdAndUpdate(req.body.id, req.body);
         res.redirect('/');
     } catch (err) {
