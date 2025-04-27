@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-[#212121] w-full h-screen flex justify-center items-center">
+    <div class="w-[50%] rounded-lg shadow-[0_0_5px] shadow-[gray] p-10">
+        <p class="flex w-full justify-between items-center font-bold text-white text-4xl">Dashbord <span class="flex w-[210px] justify-between items-center"><a href="/logout"><span class="w-[100px] h-[30px] flex justify-center items-center text-sm rounded bg-white text-black cursor-pointer">Logout</span></a> <a href="/signup"><span class="w-[100px] h-[30px] flex justify-center items-center text-sm rounded bg-[purple] text-black cursor-pointer">Signup</span></a></span></p>
+        <div class="flex flex-col items-start py-10">
+            <%data.map((e)=>{%>
+                <p class="text-white font-bold">Username : <%=e.username%></p>
+                <p class="text-white font-bold">Email : <%=e.email%></p>
+                <a href="/deleteData?id=<%=e.id%>"><button class="w-[100px] h-[30px] rounded bg-[purple] text-white cursor-pointer mt-5">Delete</button></a>
+            <%})%>
+        </div>
+    </div>
+</body>
+</html>
