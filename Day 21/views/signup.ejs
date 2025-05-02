@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-[#212121] w-full h-screen flex justify-center items-center">
+    <div class="w-[30%] rounded-lg shadow-[0_0_5px] shadow-[gray] p-10">
+        <p class="flex justify-between items-center font-bold text-[purple] text-4xl">Signup <a href="/dashbord"><span class="w-[100px] h-[30px] flex justify-center items-center text-sm rounded bg-[purple] text-black cursor-pointer">Dashbord</span></a></p>
+        <form action="/addData" method="post" class="flex flex-col items-start">
+            <label for="" class="mt-10 text-white">Username</label>
+            <input type="text" name="username" placeholder="Enter Username" class="border border-[gray] w-full h-[40px] rounded ps-5 text-white mt-1">
+            <label for="" class="mt-5 text-white">Email</label>
+            <input type="text" name="email" placeholder="Enter Email" class="border border-[gray] w-full h-[40px] rounded ps-5 text-white mt-1">
+            <label for="" class="mt-5 text-white">Password</label>
+            <input type="text" name="password" placeholder="Enter Password" class="border border-[gray] w-full h-[40px] rounded ps-5 text-white mt-1">
+            <input type="submit" class="border border-white mt-10 bg-[purple] text-white w-[100px] h-[40px] rounded cursor-pointer">
+        </form>
+    </div>
+</body>
+</html>
