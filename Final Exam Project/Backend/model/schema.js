@@ -1,0 +1,22 @@
+// This file defines the schema for a User model using Mongoose
+const mongoose = require('mongoose');
+
+const schema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    }
+});
+
+const User = mongoose.model('User', schema);
+// Export the User model
+module.exports = User;
