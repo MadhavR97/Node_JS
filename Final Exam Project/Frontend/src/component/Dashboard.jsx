@@ -62,19 +62,19 @@ function Dashboard() {
       axios.put(`http://localhost:3000/students/updatestudent/${editIndex}`, addStudent)
         .then(response => {
           console.log('Student updated successfully:', response.data);
-          fetchStudents(); // Refresh the student list
+          fetchStudents();
         })
         .catch(error => {
           console.error('There was an error updating the student:', error);
         });
-      setEditIndex(null); // Reset edit index after update
+      setEditIndex(null);
     }
     else {
       // If editIndex is null, add a new student
       axios.post('http://localhost:3000/students/addstudent', addStudent)
         .then(response => {
           console.log('Student added successfully:', response.data);
-          fetchStudents(); // Refresh the student list
+          fetchStudents();
         })
         .catch(error => {
           console.error('There was an error adding the student:', error);
@@ -102,7 +102,7 @@ function Dashboard() {
     axios.delete(`http://localhost:3000/students/deletestudent/${id}`)
       .then(response => {
         console.log('Student deleted successfully:', response.data);
-        fetchStudents(); // Refresh the student list
+        fetchStudents();
       })
       .catch(error => {
         console.error('There was an error deleting the student:', error);

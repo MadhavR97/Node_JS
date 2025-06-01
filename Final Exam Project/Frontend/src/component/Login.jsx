@@ -23,7 +23,7 @@ function Login() {
                 console.log('Login successful:', response.data)
                 // Store token or user data if needed
                 localStorage.setItem('token', response.data.token)
-                navigate('/dashboard') // Redirect to dashboard on successful login
+                navigate('/dashboard')
             })
             .catch(error => {
                 console.error('There was an error logging in:', error)

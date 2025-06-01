@@ -1,8 +1,8 @@
 const schema = require('../model/schema');
-const bcrypt = require('bcryptjs'); // Make sure to install bcrypt
-const jwt = require('jsonwebtoken'); // Make sure to install jsonwebtoken
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
-//Signup Controller
+// Signup Controller
 module.exports.signup = async (req, res) => {
     try {
         // Check if user already exists
@@ -21,7 +21,7 @@ module.exports.signup = async (req, res) => {
     }
 }
 
-// //Login Controller
+// Login Controller
 module.exports.login = async (req, res) => {
     try {
         const user = await schema.findOne({ email: req.body.email });
@@ -30,7 +30,7 @@ module.exports.login = async (req, res) => {
         }
         // Compare the password with the hashed password in the database
         if (await bcrypt.compare(req.body.password, user.password)) {
-            // Generate a token (assuming you have a function to do this)
+            // Generate a token
             const token = jwt.sign({ id: user._id }, 'Madhav', { expiresIn: '1h' });
             res.json({ msg: 'Login successful', token, user });
         }

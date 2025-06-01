@@ -23,17 +23,14 @@ function Signup() {
         axios.post('http://localhost:3000/signup', formData)
             .then((response) => {
                 console.log('Signup successful:', response.data)
-                // Redirect to login page after successful signup
                 navigate('/')
             })
             .catch((error) => {
                 console.error('There was an error signing up:', error)
-                // Handle error (e.g., show an error message)
             })
     }
 
     return (
-        // with tailwind css
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-96">
                 <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
