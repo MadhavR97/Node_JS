@@ -9,3 +9,11 @@ db.once('open', (error) => {
 })
 
 module.exports = db
+
+// MongoDB Atlas Database Connection
+
+// mongoose.connect(`mongodb+srv://madhavrathod019:Madhav123@cluster0.1lmd4gz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
+//     .then(() => { console.log('connected to db') })
+//     .catch((err) => { console.log(err) });
+
+// export default mongoose;
