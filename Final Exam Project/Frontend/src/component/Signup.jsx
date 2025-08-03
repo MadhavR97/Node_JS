@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -14,28 +13,28 @@ function Signup() {
 
     const handleChange = (e) => {
         const { name, value } = e.target
-        setFormData({ ...formData, [name]: value })
+        setFormData(prev => ({ ...prev, [name]: value }))
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-
-        axios.post('http://localhost:3000/signup', formData)
-            .then((response) => {
-                console.log('Signup successful:', response.data)
-                navigate('/')
-            })
-            .catch((error) => {
-                console.error('There was an error signing up:', error)
-            })
+        try {
+            const response = await axios.post('https://admin-panel-backend-1tym.onrender.com/signup', formData)
+            console.log('Signup successful:', response.data)
+            alert(response.data.msg) // Show a success message
+            navigate('/') // Redirect to login
+        } catch (error) {
+            console.error('Signup error:', error)
+            alert(error?.response?.data?.msg || 'Signup failed')
+        }
     }
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
-            <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-96">
-                <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
+        <div className="flex items-center justify-center min-h-screen bg-gray-900">
+            <form onSubmit={handleSubmit} className="bg-gray-800 text-white p-10 rounded-xl shadow-xl [box-shadow:_0_0_20px_0_skyblue] flex flex-col w-96">
+                <h2 className="text-2xl font-bold mb-10 mt-4">Sign Up</h2>
                 <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="name">Name</label>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-500 mb-2">Name</label>
                     <input
                         type="text"
                         name="name"
@@ -43,11 +42,12 @@ function Signup() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
+                        placeholder='Enter your name'
+                        className="text-sm w-full px-3 py-2 border-b-2 border-gray-300 rounded focus:border-none focus:outline-none focus:ring focus:ring-blue-900 placeholder:italic"
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="email">Email</label>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-500 mb-2">Email</label>
                     <input
                         type="email"
                         name="email"
@@ -55,11 +55,12 @@ function Signup() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
+                        placeholder='Enter your email'
+                        className="text-sm w-full px-3 py-2 border-b-2 border-gray-300 rounded focus:border-none focus:outline-none focus:ring focus:ring-blue-900 placeholder:italic"
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="password">Password</label>
+                    <label htmlFor="password" className="block text-sm font-medium text-gray-500 mb-2">Password</label>
                     <input
                         type="password"
                         name="password"
@@ -67,12 +68,13 @@ function Signup() {
                         value={formData.password}
                         onChange={handleChange}
                         required
-                        className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
+                        placeholder='Enter your password'
+                        className="text-sm w-full px-3 py-2 border-b-2 border-gray-300 rounded focus:border-none focus:outline-none focus:ring focus:ring-blue-900 placeholder:italic"
                     />
                 </div>
-                <div className='flex flex-col gap-2'>
-                    <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-200">Sign Up</button>
-                    <button className="w-full bg-gray-600 text-white py-2 rounded hover:bg-gray-700 transition duration-200" onClick={() => navigate('/')}>Goto Login</button>
+                <div className='flex justify-between items-center mt-10 mb-4'>
+                    <button type="submit" className="w-[150px] bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200 cursor-pointer">Sign Up</button>
+                    <button type="button" className="cursor-pointer text-white hover:text-blue-500 transition duration-200" onClick={() => navigate('/')}>Go to Login</button>
                 </div>
             </form>
         </div>

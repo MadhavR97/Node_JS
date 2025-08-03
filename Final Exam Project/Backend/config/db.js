@@ -1,19 +1,9 @@
-const mongoose = require('mongoose')
+//Mongodb Atlas connection
+const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1/ReactPrectice')
+mongoose.connect('mongodb+srv://madhavrathod019:Madhav123@clusterprectice.g3lctft.mongodb.net/?retryWrites=true&w=majority&appName=ClusterPrectice')
+    .then(() => console.log('Connected to MongoDB'))
+    .catch((error) => console.error('Error connecting to MongoDB:', error));
 
-const db = mongoose.connection
+module.exports = mongoose;
 
-db.once('open', (error) => {
-    error ? console.log(error) : console.log('Database Connected')
-})
-
-module.exports = db
-
-// MongoDB Atlas Database Connection
-
-// mongoose.connect(`mongodb+srv://madhavrathod019:Madhav123@cluster0.1lmd4gz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
-//     .then(() => { console.log('connected to db') })
-//     .catch((err) => { console.log(err) });
-
-// export default mongoose;

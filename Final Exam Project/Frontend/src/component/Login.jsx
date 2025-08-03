@@ -18,7 +18,7 @@ function Login() {
     const handleSubmit = (e) => {
         e.preventDefault()
         // Handle login logic here
-        axios.post('http://localhost:3000/login', formData)
+        axios.post('https://admin-panel-backend-1tym.onrender.com/login', formData)
             .then(response => {
                 console.log('Login successful:', response.data)
                 // Store token or user data if needed
@@ -33,11 +33,12 @@ function Login() {
 
     return (
         <div>
-            <div className="flex items-center justify-center min-h-screen bg-gray-100">
-                <form className="bg-white p-6 rounded shadow-md w-96" onSubmit={handleSubmit}>
-                    <h2 className="text-2xl font-bold mb-4">Login</h2>
+            {/* change my login background */}
+            <div className="flex items-center justify-center min-h-screen bg-gray-900">
+                <form className="bg-gray-800 text-white p-10 rounded-xl shadow-xl [box-shadow:_0_0_20px_0_skyblue] flex flex-col w-96" onSubmit={handleSubmit}>
+                    <h2 className="text-2xl font-bold mb-10 mt-4">Login</h2>
                     <div className="mb-4">
-                        <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="email">Email</label>
+                        <label className="block text-sm font-medium text-gray-500 mb-2" htmlFor="email">Email</label>
                         <input
                             type="email"
                             name="email"
@@ -45,11 +46,12 @@ function Login() {
                             value={formData.email}
                             onChange={handleChange}
                             required
-                            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
+                            placeholder='Enter your email'
+                            className="text-sm w-full px-3 py-2 border-b-2 border-gray-300 rounded focus:border-none focus:outline-none focus:ring focus:ring-blue-900 placeholder:italic"
                         />
                     </div>
                     <div className="mb-4">
-                        <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="password">Password</label>
+                        <label className="block text-sm font-medium text-gray-500 mb-2" htmlFor="password">Password</label>
                         <input
                             type="password"
                             name="password"
@@ -57,19 +59,20 @@ function Login() {
                             value={formData.password}
                             onChange={handleChange}
                             required
-                            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
+                            placeholder='Enter your password'
+                            className="text-sm w-full px-3 py-2 border-b-2 border-gray-300 rounded focus:border-none focus:outline-none focus:ring focus:ring-blue-900 placeholder:italic"
                         />
                     </div>
-                    <div className='flex flex-col gap-2'>
+                    <div className='flex justify-between items-center mt-10 mb-4'>
                         <button
                             type="submit"
                             onClick={() => navigate('/dashboard')}
-                            className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200"
+                            className="w-[150px] bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200 cursor-pointer"
                         >
                             Login
                         </button>
                         <button
-                            className="w-full bg-gray-600 text-white py-2 rounded hover:bg-gray-700 transition duration-200"
+                            className="cursor-pointer text-white hover:text-blue-500 transition duration-200"
                             onClick={() => navigate('/signup')}
                         >
                             Go to Signup

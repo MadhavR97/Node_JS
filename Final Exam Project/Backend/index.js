@@ -2,7 +2,6 @@ const express = require('express')
 const port = 3000
 const db = require('./config/db')
 const cors = require('cors')
-const dotenv = require('dotenv').config()
 
 const app = express()
 
